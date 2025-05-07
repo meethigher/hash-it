@@ -28,6 +28,8 @@ jobs:
           release_name: Release-${{ github.ref }}
           draft: false
           prerelease: false
+
+  # build依赖create-release
   build:
     needs: create-release
     runs-on: ubuntu-latest
@@ -45,7 +47,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.23.8' # 根据你的 Go 版本修改
+          go-version: '1.20.0' # 根据你的 Go 版本修改
 
       - name: Build binary
         env:
@@ -84,6 +86,7 @@ jobs:
         with:
           name: hash-it_${{ github.ref_name }}_${{ matrix.os }}_${{ matrix.arch }}
           path: dist/hash-it_${{ github.ref_name }}_${{ matrix.os }}_${{ matrix.arch }}.zip
+          retention-days: 1  # 设置保留 artifact 天数
 
       # 上传附件到Release
       - name: Upload zip files to Release

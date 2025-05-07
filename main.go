@@ -14,6 +14,9 @@ import (
 	"strings"
 )
 
+// 定义版本号
+const version = "1.0.1"
+
 // getHashFunction 返回对应的哈希函数
 func getHashFunction(algorithm string) (func() hash.Hash, error) {
 	switch strings.ToLower(algorithm) {
@@ -86,6 +89,7 @@ func printHashResults(filePaths []string, algorithm string) {
 func main() {
 	// 检查命令行参数
 	if len(os.Args) < 3 {
+		fmt.Printf("hash-it version: %s\n", version)
 		fmt.Println("Usage: hash-it [algorithm] [file_path]...")
 		fmt.Println("Supported algorithms: md5, sha-1, sha-256, sha-512, sha3-256, sha3-512")
 		os.Exit(1)

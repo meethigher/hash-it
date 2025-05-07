@@ -1,10 +1,10 @@
 module hash-it
 
-go 1.23.0
-
-toolchain go1.23.8
+// invalid go version '1.22.0': must match format 1.23
+// https://github.com/siderolabs/conform/issues/251
+go 1.20
 
 require (
-	golang.org/x/crypto v0.38.0 // indirect
-	golang.org/x/sys v0.33.0 // indirect
+	golang.org/x/crypto v0.17.0 // indirect
+	golang.org/x/sys v0.15.0 // indirect
 )

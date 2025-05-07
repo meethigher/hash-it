@@ -29,4 +29,8 @@ go build -o hash-it.exe .
 go build -o hash-it .
 ```
 
+使用golang1.20.0版本，解决windows7出现的runtime.asmstdcall<0x5e0300060009>问题。
+
+参考[Go 1.20 Release Notes - The Go Programming Language](https://tip.golang.org/doc/go1.20#windows)
+
 
